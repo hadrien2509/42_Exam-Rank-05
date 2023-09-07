@@ -6,7 +6,7 @@
 /*   By: hgeissle <hgeissle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:21:07 by hgeissle          #+#    #+#             */
-/*   Updated: 2023/09/06 18:41:04 by hgeissle         ###   ########.fr       */
+/*   Updated: 2023/09/07 09:10:24 by hgeissle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ void Warlock::forgetSpell(std::string spellname)
 
 void Warlock::launchSpell(const std::string spellname, const ATarget& tar)
 {
-	this->_spellbook[spellname]->launch(tar);
+	if (this->_spellbook[spellname])
+		this->_spellbook[spellname]->launch(tar);
 }
