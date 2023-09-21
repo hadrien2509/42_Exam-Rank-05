@@ -6,7 +6,7 @@
 /*   By: hgeissle <hgeissle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:21:09 by hgeissle          #+#    #+#             */
-/*   Updated: 2023/09/06 18:19:17 by hgeissle         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:04:18 by hgeissle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@
 #include <algorithm>
 #include "ASpell.hpp"
 
+#include "SpellBook.hpp"
+
 class Warlock
 {
 	private:
 		std::string	_name;
 		std::string	_title;
-		std::map<std::string,ASpell*> _spellbook; 
+		SpellBook _spellbook; 
 
 		Warlock();
 		Warlock(const Warlock&);

@@ -6,7 +6,7 @@
 /*   By: hgeissle <hgeissle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:21:07 by hgeissle          #+#    #+#             */
-/*   Updated: 2023/09/07 09:10:24 by hgeissle         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:01:56 by hgeissle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,19 @@ void Warlock::introduce() const
 
 void Warlock::learnSpell(ASpell* spell)
 {
-	this->_spellbook[spell->getName()] = spell;
+	this->_spellbook.learnSpell(spell);
 }
 
 void Warlock::forgetSpell(std::string spellname)
 {
-	this->_spellbook.erase(spellname);
+	this->_spellbook.forgetSpell(spellname);
 }
 
 void Warlock::launchSpell(const std::string spellname, const ATarget& tar)
 {
-	if (this->_spellbook[spellname])
-		this->_spellbook[spellname]->launch(tar);
+	ASpell* tmp;
+
+	tmp = this->_spellbook.createSpell(spellname);
+	if (tmp)
+		tmp->launch(tar);
 }
